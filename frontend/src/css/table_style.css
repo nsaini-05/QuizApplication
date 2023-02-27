@@ -1,0 +1,30 @@
+table {
+  margin-top: -4.8rem;
+  width: 100%;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+th,
+td {
+  /* border: 1px solid #343a40; */
+  padding: 16px 24px;
+  text-align: left;
+}
+
+thead tr {
+  background-color: #087f5b;
+  color: #fff;
+}
+
+thead th {
+  width: 25%;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #e9ecef;
+}
