@@ -7,8 +7,8 @@
   "scripts": {
     "client": "npm start --prefix frontend",
     "start": "concurrently \"npm run prod\" \"npm run client\"",
-    "prod": "SET NODE_ENV=PRODUCTION&&nodemon backend/server.js",
-    "dev": "SET NODE_ENV=DEVELOPMENT&&nodemon backend/server.js",
+    "prod": "set NODE_ENV=PRODUCTION&&nodemon backend/server.js",
+    "dev": "set NODE_ENV=DEVELOPMENT&&nodemon backend/server.js",
     "seed": "node backend/seeder.js"
   },
   "author": "Neeraj Saini",
