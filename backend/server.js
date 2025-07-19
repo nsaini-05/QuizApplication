@@ -1,38 +1,55 @@
-import express from 'express'
-import questionRoutes from './routes/questionRoutes.js'
-import scoreRoutes from './routes/scoreRoutes.js'
-import dotenv from 'dotenv'
-import connectDB from './config/db.js'
+import express from "express";
+import questionRoutes from "./routes/questionRoutes.js";
+import scoreRoutes from "./routes/scoreRoutes.js";
+import dotenv from "dotenv";
+import connectDB from "./config/db.js";
 import {
   notFoundErrorHandler,
-  errorHandler
-} from './middlewares/errorHandler.js'
-import cors from 'cors'
-dotenv.config()
-import path from 'path'
-const app = express()
-app.use(cors())
+  errorHandler,
+} from "./middlewares/errorHandler.js";
+import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
-connectDB()
+// Setup __dirname for ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-app.use(express.json())
+// Load environment variables
+dotenv.config();
 
-app.use('/api', questionRoutes)
-app.use('/api', scoreRoutes)
+// Initialize Express app
+const app = express();
 
-app.use(notFoundErrorHandler)
-app.use(errorHandler)
+// Connect to MongoDB
+connectDB();
 
-//Serve Static Assets
-if(process.env.NODE_ENV==='PRODUCTION'){
-  app.use(express.static('client/build'))
-  app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'client','build','index.html'))
-  })
+// Middlewares
+app.use(cors());
+app.use(express.json());
+
+// API routes
+app.use("/api", questionRoutes);
+app.use("/api", scoreRoutes);
+
+// Serve frontend in production
+if (process.env.NODE_ENV === "PRODUCTION") {
+  const frontendPath = path.resolve(__dirname, "../frontend/build");
+  console.log("Serving frontend from:", frontendPath);
+
+  app.use(express.static(frontendPath));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(frontendPath, "index.html"));
+  });
 }
 
-app.listen(5000 || process.env.PORT, () => {
-  console.log(
-    `Server Started on port ${process.env.PORT} in ${process.env.NODE_ENV}`
-  )
-})
+// Error handling middlewares
+app.use(notFoundErrorHandler);
+app.use(errorHandler);
+
+// Start server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT} in ${process.env.NODE_ENV} mode`);
+});
