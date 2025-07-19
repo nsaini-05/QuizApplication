@@ -1,30 +1,90 @@
-.dialog {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 4.8rem;
-  background-color: #ffd19f;
-  border-radius: 2rem;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 2.4rem;
+  max-width: 80rem;
 }
-.cta-form input,
-.cta-form select {
+
+.primary-heading {
+  font-size: 6.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.highlight {
+  color: var(--brand-color-primary);
+}
+
+.tag-line {
+  font-size: 2.4rem;
+  color: var(--text-color-secondary);
+  margin-bottom: 3.2rem;
+  line-height: 1.7;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+}
+
+.btn {
+  padding: 1.6rem 3.2rem;
+  font-size: 1.8rem;
+  border-radius: 5px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background-color: var(--btn-background-primary);
+  color: var(--background-color);
+}
+
+.btn-secondary {
+  background-color: var(--btn-background-secondary);
+  color: var(--text-color-primary);
+  font-weight: 400;
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-background-primary-hover);
+}
+
+.btn-primary:focus {
+  transform: translateY(0.5rem);
+  box-shadow: var(--box-shadow);
+}
+
+.btn-secondary:hover {
+  background-color: var(--btn-background-secondary-hover);
+}
+
+.btn-secondary:active {
+  transform: translateY(0.5rem);
+  box-shadow: var(--box-shadow);
+}
+
+.cta-form input {
   width: 100%;
   padding: 1.4rem;
   font-size: 1.8rem;
   font-family: inherit;
-  background-color: #fdf2e9;
-  border-radius: 9px;
-  border: none;
-  box-shadow: 0 1px 2px rgba(116, 72, 72, 0.1);
+  background-color: var(--faded-background);
+  border-radius: 5px;
+  border: 2px solid var(--brand-color-primary);
   color: inherit;
-  margin-bottom: 2rem;
+  margin-bottom: 3.2rem;
 }
 
-.cta-form label {
-  display: block;
-  font-size: 1.8rem;
-  font-weight: 500;
-  margin-bottom: 1.2rem;
+.disabled-button {
+  cursor: not-allowed;
 }

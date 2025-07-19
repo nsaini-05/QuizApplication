@@ -1,6 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  font-family: "Inter", sans-serif;
+  --background-color: #ffffff;
+  --brand-color-primary: #319795;
+  --text-color-primary: #2d3748;
+  --text-color-secondary: #718096;
+  --btn-background-primary: #2c7a7b;
+  --btn-background-primary-hover: #285e61;
+  --btn-background-secondary: #edf2f7;
+  --btn-background-secondary-hover: #e2e8f0;
+  --box-shadow: rgba(0, 0, 0, 0.075);
+  --border-color: #007afe;
+  --correct-option: #96bdbd;
+  --wrong-option: #e57373;
+  --faded-background: #f8f9fa;
+}
+
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -9,81 +28,10 @@ html {
 }
 
 body {
-  background-color: #fdf2e9;
-  font-family: 'Lato', sans-serif;
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.container {
-  max-width: 80rem;
-  background-color: #fff;
-  margin: 4.8rem auto;
-  padding: 4.8rem 0 4.8rem 0;
-  border-radius: 25px;
-  text-align: center;
-  box-shadow: 0 2.4rem 4.8rem 0 rgba(0, 0, 0, 0.15);
-  animation: moveUp 1s ease-out;
-}
-
-.subheading {
-  display: block;
-  font-weight: 700;
-  font-size: 2rem;
-  color: #ff8c0e;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
-}
-
-.tertiary-heading {
-  font-size: 3rem;
-  line-height: 1.2;
-  margin-bottom: 4.8rem;
-}
-
-/*Option*/
-
-.btn--form {
-  background-color: #4e8fea;
-  color: white;
-  font-size: 1.8rem;
-  padding: 1.6rem 3.2rem;
-  border-radius: 10px;
-  transition: all 0.5s;
-  border: none;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.btn--form:hover {
-  background-color: #fff;
-  color: #4e8fea;
-  cursor: pointer;
-  box-shadow: inset 0 0 0 3px #4e8fea;
-}
-
-.btn-secondary {
-  background-color: #ff8c0e;
-  margin-left: 1rem;
-}
-
-.btn-secondary:hover {
-  background-color: #fff;
-  color: #ff8c0e;
-  cursor: pointer;
-  box-shadow: inset 0 0 0 3px #ff8c0e;
-}
-
-@keyframes moveUp {
-  0% {
-    opacity: 0;
-    transform: translateY(10rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  min-height: 100vh;
+  color: var(--text-color-primary);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

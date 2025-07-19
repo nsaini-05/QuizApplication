@@ -1,0 +1,31 @@
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 3.2rem;
+}
+
+.btn-secondary {
+  font-weight: 400;
+  box-shadow: var(---box-shadow);
+}
+
+.btn-secondary.correct-option {
+  background-color: var(--correct-option);
+}
+
+.btn-secondary.wrong-option {
+  background-color: var(--wrong-option);
+}
+
+/* Prevent hover and active for disabled button */
+.btn-secondary:disabled:hover,
+.btn-secondary:disabled:active {
+  cursor: not-allowed;
+}
+
+.selected-option {
+  box-shadow: inset 0 0 0 2px var(--brand-color-primary);
+}
